@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jhean Breard</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="default.css">
+
+        <link id="theme-style" rel="stylesheet" type="text/css" href="">
+
+        <style type="text/css">
+            h1, h2{
+                text-align: center;
+            }
+            h3, h4, h5, h6{
+                text-align: left;
+            }
+            .img-container{
+                max-width: 500px;
+                display: block;
+                margin: 0 auto;
+            }
+            img{
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="nav-wrapper">
+            <a href="index.html">
+            <div class="dots-wrapper">
+                    <div id="dot-1" class="browser-dot">
+                    </div>
+                    <div id="dot-2" class="browser-dot">
+                    </div>
+                    <div id="dot-3" class="browser-dot">
+                    </div>
+            </div>
+            </a>
+            <ul id="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mailto:jhean.breard.vi@emory.edu">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="main-container">
+            <br>
+
+            <h1>Autocomplete</h1>    
+
+            <h3>Goal</h3>
+            <p>
+                Imagine you're typing on your phone, and as you start typing a word, suggestions pop up to help you finish it. This is about building a smart suggestion tool that accomplishes just that.
+            </p>
+            <p>
+                Overall, the goal is to make typing easier and faster by predicting what you want to write based on what you've typed before.
+            </p>
+
+            <h3>How It's Accomplished</h3>
+            <p>
+                <b>Idea:</b> 
+                When you type the beginning of a word (like "sh"), the tool looks for words that start with those letters and gives you a list of options (like "she," "ship," "shell").
+            </p>
+            <p>
+                <b>Learning:</b> 
+                If you pick one of the suggestions (for example, "ship"), the next time you type "sh," "ship" should show up at the top of the list because you chose it before.
+            </p>
+            <p>
+                <b>Organization:</b> 
+                The suggestions are neatly organized, with shorter words appearing first. If two words are the same length, then they are sorted alphabetically.
+            </p>
+
+            <h3>Techniques Used</h3>
+            <p>
+                <b>Data Structure: </b>
+                Trie is a type of tree that helps store words efficiently. Each node in the trie represents a letter, and paths through the tree spell out complete words. This structure allows quick searches for prefixes (like "sh") to find matching words.
+            </p>
+            <p>
+                <b>Finding and Organizing Candidate Words: </b>
+                When you enter a prefix, the program looks through the trie to find all words that start with that prefix. This is done by recursively exploring the nodes in the trie that follow the prefix, collecting words as it goes.
+            </p>
+            <p>
+                After finding all the potential words, the code sorts these suggestions based on two criteria:
+                length and alphabetical order.
+            </p>
+            <p>
+                <b>Storing and Managing Candidate Words: </b>
+                I used ArrayLists for flexible storage of candidate words and Hashtables for quick access to the words associated with each prefix, allowing for efficient updates and retrievals. There are no duplicates that appear and it only shows a limited number of suggestions (as specified by the user). 
+            </p>
+
+            <h2>Sample Input</h2>
+
+            <div class="img-container">
+                <img src="images/autocomplete2.png">
+            </div>
+
+            <h2>Sample Output</h2>
+
+            <div class="img-container">
+                <img src="images/autocomplete1.png">
+                
+            </div>
+            
+        </div>
+
+    </body>
+</html>    
