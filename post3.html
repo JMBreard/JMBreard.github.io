@@ -34,84 +34,88 @@
     </head>
     <body>
 
-        <div class="nav-wrapper">
-            <a href="index.html">
-            <div class="dots-wrapper">
-                    <div id="dot-1" class="browser-dot">
-                    </div>
-                    <div id="dot-2" class="browser-dot">
-                    </div>
-                    <div id="dot-3" class="browser-dot">
-                    </div>
+        <section class="s3">
+            <div class="nav-wrapper">
+                <a href="index.html">
+                <div class="dots-wrapper">
+                        <div id="dot-1" class="browser-dot">
+                        </div>
+                        <div id="dot-2" class="browser-dot">
+                        </div>
+                        <div id="dot-3" class="browser-dot">
+                        </div>
+                </div>
+                </a>
+                <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mailto:jhean.breard.vi@emory.edu">Contact</a></li>
+                </ul>
             </div>
-            </a>
-            <ul id="navigation">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="mailto:jhean.breard.vi@emory.edu">Contact</a></li>
-            </ul>
-        </div>
-
-        <div class="main-container">
-            <br>
-
-            <h1>Rock, Paper, Scissors</h1>
-
-            <div class="img-container">
-                <img src="images/rps2.png">
+    
+            <div class="main-container">
+                <br>
+    
+                <h1>Rock, Paper, Scissors</h1>
+    
+                <div class="img-container">
+                    <img src="images/rps2.png">
+                </div>
+    
+                <h3>Goal</h3>
+                <p>
+                    Implement a simple text-based version of the classic game "Rock, Paper, Scissors" for two players demonstrating key concepts of object-oriented programming (OOP) while providing a fun way to engage users.
+                </p>
+    
+                <h3>How it's Accomplished</h3>
+                <p>
+                    <b>Setup:</b>
+                    The game allows two players to compete, either against each other or with computer opponents. Each player can choose between "rock," "paper," or "scissors."
+                </p>
+                <p>
+                    <b>Rules:</b>
+                    Clearly defines the rules of the game, explaining how the winner is determined and what it takes to win rounds.
+                </p>
+                <p>
+                    <b>Logic:</b>
+                    Tracks the score for each player and determines when the game is over (when a player wins two rounds).
+                </p>
+                <p>
+                    <b>Interaction:</b>
+                    Prompts players for their moves and reports the game state, including scores and the winner.
+                </p>
+    
+                <h3>Techniques Used</h3>
+                <p>
+                    <b>Classes and Inheritance:</b>
+                    The RockPaperScissors class extends TwoPlayerGame, meaning it inherits properties and methods from this parent class, allowing for shared functionality.
+                </p>
+                <p>
+                    <b>Encapsulation:</b>
+                    The game's state (such as the scores and the number of rounds) is stored in private variables. This prevents direct access from outside the class, protecting the game's internal logic.
+                </p>
+                <p>
+                    <b>Methods:</b>
+                    Methods like getRules(), reportGameState(), and play() break down functionality into manageable pieces. Each method has a specific role, making the code easier to read and maintain.
+                </p>
+                <p>
+                    <b>Polymorphism:</b>
+                    The play method can handle both human and computer players. By using interfaces (like CLUIPlayableGame), the code can be flexible, allowing different types of players to interact with the game without changing its core logic.
+                </p>
+                <p>
+                    <b>Abstraction:</b>
+                    Hides complex logic (like determining the winner) behind simple method calls. Users interact with the game through straightforward prompts and outputs, without needing to understand the underlying implementation.
+                </p>
+    
+    
+                <h2>Sample Output: CPU vs CPU</h2>
+                <div class="img-container">
+                    <img src="images/rps1.png">
+                </div>
+    
             </div>
+        </section>
 
-            <h3>Goal</h3>
-            <p>
-                Implement a simple text-based version of the classic game "Rock, Paper, Scissors" for two players demonstrating key concepts of object-oriented programming (OOP) while providing a fun way to engage users.
-            </p>
-
-            <h3>How it's Accomplished</h3>
-            <p>
-                <b>Setup:</b>
-                The game allows two players to compete, either against each other or with computer opponents. Each player can choose between "rock," "paper," or "scissors."
-            </p>
-            <p>
-                <b>Rules:</b>
-                Clearly defines the rules of the game, explaining how the winner is determined and what it takes to win rounds.
-            </p>
-            <p>
-                <b>Logic:</b>
-                Tracks the score for each player and determines when the game is over (when a player wins two rounds).
-            </p>
-            <p>
-                <b>Interaction:</b>
-                Prompts players for their moves and reports the game state, including scores and the winner.
-            </p>
-
-            <h3>Techniques Used</h3>
-            <p>
-                <b>Classes and Inheritance:</b>
-                The RockPaperScissors class extends TwoPlayerGame, meaning it inherits properties and methods from this parent class, allowing for shared functionality.
-            </p>
-            <p>
-                <b>Encapsulation:</b>
-                The game's state (such as the scores and the number of rounds) is stored in private variables. This prevents direct access from outside the class, protecting the game's internal logic.
-            </p>
-            <p>
-                <b>Methods:</b>
-                Methods like getRules(), reportGameState(), and play() break down functionality into manageable pieces. Each method has a specific role, making the code easier to read and maintain.
-            </p>
-            <p>
-                <b>Polymorphism:</b>
-                The play method can handle both human and computer players. By using interfaces (like CLUIPlayableGame), the code can be flexible, allowing different types of players to interact with the game without changing its core logic.
-            </p>
-            <p>
-                <b>Abstraction:</b>
-                Hides complex logic (like determining the winner) behind simple method calls. Users interact with the game through straightforward prompts and outputs, without needing to understand the underlying implementation.
-            </p>
-
-
-            <h2>Sample Output: CPU vs CPU</h2>
-            <div class="img-container">
-                <img src="images/rps1.png">
-            </div>
-
-        </div>
-
+    <script type="text/javascript" src="script.js"></script>
+        
     </body>
 </html>    
