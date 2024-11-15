@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jhean Breard</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="default.css">
+
+        <link id="theme-style" rel="stylesheet" type="text/css" href="">
+
+        <style type="text/css">
+            h1, h2{
+                text-align: center;
+            }
+            h3, h4, h5, h6{
+                text-align: left;
+            }
+            .img-container{
+                max-width: 500px;
+                display: block;
+                margin: 0 auto;
+            }
+            img{
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+
+        <section class="s2">
+            <div class="nav-wrapper">
+                <a href="index.html">
+                <div class="dots-wrapper">
+                        <div id="dot-1" class="browser-dot">
+                        </div>
+                        <div id="dot-2" class="browser-dot">
+                        </div>
+                        <div id="dot-3" class="browser-dot">
+                        </div>
+                </div>
+                </a>
+                <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mailto:jhean.breard.vi@emory.edu">Contact</a></li>
+                </ul>
+            </div>
+    
+            <div class="main-container">
+                <br>
+    
+                <h1>Computing in Cardiology Challenge</h1>
+    
+                <h3>Goal</h3>
+                <p>
+                    The goal of this project was to explore machine learning concepts by building a linear classifier using real-world data.
+                    The dataset, provided by Beth Israel Deaconess Medical Center in Boston, contains information on 12,000 patients.
+                    My task was to develop a model that could predict in-hospital mortality rates for patients. This problem is outlined in further detail 
+                    <a target="_blank" href="https://physionet.org/content/challenge-2012/1.0.0/">here</a>.
+                </p>
+    
+                <h3>How it's Accomplished</h3>
+                <p>
+                    <b>Preparing the data:</b>
+                    The dataset was missing values for some patient metrics, so I had to groom the data before using it. To accomplish this, I applied imputation and normalization.
+                </p>
+                <p>
+                    <b>Preparing the model:</b>
+                    In order to identify the most important features, I used a Random Forest classifier. This narrowed down medical data that affected patient outcomes the most. 
+                    After that, I ran tests to determine which kind of Logistic Regression model to use: L1 (Lasso) or L2 (Ridge) regularization.
+                </p>
+                <p>
+                    <b>Training:</b>
+                    To train the model, I used cross-validation.
+                    After training, I tested their performance using F1-score and AUROC diagnostics. 
+                    This enabled me to identify which model had the best predictive capability!
+                    The key is to use most of the data for training, but setting some aside for testing generalizability.
+                </p>
+    
+                <h3>Techniques Used</h3>
+                <p>
+                    <b>Imputation & Normalization:</b>
+                    I used mean imputation to replace missing metrics with the average. 
+                    Then normalization is used to put all of these metrics on an equal playing field by scaling them between 0 and 1. 
+                    This step prevents a single feature from skewing results.
+                </p>
+                <p>
+                    <b>Random Forest Classifier:</b>
+                    This is a machine learning model built into Python's sklearn which calculates the "most important" metrics.
+                    It builds decision trees by splitting data into branches that lead to patient outcomes, dying or surviving.
+                    Computing many of these trees, and averaging branches that have a greater affect on outcomes together, yields a more predictive tree.
+                    I was able to select metrics that affected patient outcomes more than average, and train models based on these metrics.
+                </p>
+                <p>
+                    <b>Logistic Regression:</b>
+                    This is a term referring to a linear (straight-line relationship) model that performs binary (two possible outcomes) classification.
+                    It calculates the probability of an outcome based on the linear combination of input features.
+                    As mentioned before, there are two types that I experimented with in this project: L1 (Lasso) and L2 (Ridge) regularization. 
+                    These terms refer to the ways in which a Linear Regression model can be simplified to more effectively predict data.
+                    An overly complicated model overfits training data and performs poorly on new test data.
+                </p>
+                <p>
+                    <b>Cross-Validation (Stratified K-Fold):</b>
+                    This is a way to split data into multiple parts, or "folds", to train and test data. 
+                    The model is trained on one fold at a time, up to however many are specified (typically five).
+                    It provides a reliable way to equally account for data within the set to reduce bias and overfitting.
+                </p>
+                <p>
+                    <b>Evaluation Metrics:</b>
+                    F-1 Score measures precision and recall. This means that it checks how well the model predicts positive cases.
+                    Given that a positive case has serious implications, this is an important diagnostic.
+                    AUROC (Area Under the Receiver Operating Characteristic Curve) measures how well the model can distinguish between true positive and false positive cases.
+                    If the model's area score is 0.5, then it is totally random. If it achieves a score greater than 0.5, then it can reliably differentiate patient outcomes (typically 0.7-0.9).
+                </p>
+    
+                <h2 style="text-align: center;">Model Phases</h2>
+                <div class="post-wrapper">
+                    <div class="post">
+                        <div class="img-container">
+                            <img src="images/challenge_data.png">
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="img-container">
+                            <img src="images/challenge_train.png">
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="img-container">
+                            <img src="images/conf_mat.png">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    <script type="text/javascript" src="script.js"></script>
+        
+    </body>
+</html>    
