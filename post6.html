@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jhean Breard</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="default.css">
+
+        <link id="theme-style" rel="stylesheet" type="text/css" href="">
+
+        <style type="text/css">
+            h1, h2{
+                text-align: center;
+            }
+            h3, h4, h5, h6{
+                text-align: left;
+            }
+            .img-container{
+                max-width: 500px;
+                display: block;
+                margin: 0 auto;
+            }
+            img{
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+
+        <section class="s2">
+            <div class="nav-wrapper">
+                <a href="index.html">
+                <div class="dots-wrapper">
+                        <div id="dot-1" class="browser-dot">
+                        </div>
+                        <div id="dot-2" class="browser-dot">
+                        </div>
+                        <div id="dot-3" class="browser-dot">
+                        </div>
+                </div>
+                </a>
+                <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mailto:jhean.breard.vi@emory.edu">Contact</a></li>
+                </ul>
+            </div>
+    
+            <div class="main-container">
+                <br>
+    
+                <h1>Shell Program</h1>
+    
+                <h3>Goal</h3>
+                <p>
+                    My program serves as a command line interface for users to interact with the operating system, similar in functionality to Linux OS. Here are the functionalities that it accomplishes:
+                </p>
+
+                <ol>
+                    <li>Reads commands from the user</li>
+                    <li>Parses the commands</li>
+                    <li>Executes commands and creates new processes</li>
+                </ol>
+
+                <p>
+                    It is possible to execute single commands or to chain multiple commands together. Input to files and from files can be redirected as output to other files or to the command line. Processes can be run in the foreground or in the background so that the user can input other commands during execution. Finally, the program handles process controls like defunct (zombie) process cleanup and manages memory so that there are no leaks. It will also inform the user of improper command inputs and how to adjust commands for execution.
+                </p>
+    
+                <h3>How it's Accomplished</h3>
+                    
+                <p>
+                    <b>Parse and Validate: </b>
+                    The prompt "mysh: " appears and awaits user input. The parse() function takes in the entered command line and divides it into tokens. These tokens are words and operators that are separated by a space. The tokens are put into an array as strings that can be processed sequentially for parsing logic within the syntax_error() function. Some basic checks that the syntax_error() function performs are ensuring that file names exist for redirection and that background execution is initiated with the '&' operator at the end of the command line.
+                </p>
+                    
+                <p>
+                    <b>Building the Command: </b> 
+                    The create_set() function turns the tokenized array into a CommandSet object. The CommandSet object holds the necessary information to execute each command: command, argument, and redirection information. Commands and their arguments are separated by the '|' (pipe) operator. create_set() also performs additional syntax checks that apply to longer commands such as verifying that only the beginning contains input redirection and only the ending contains output redirection. Other checks include double output redirection and prohibiting append with output redirection.
+                </p>
+                    
+                <p>
+                    <b>Process Handling and Execution: </b>
+                    The main() function performs process execution and handling in either the foreground or background. The execution phase follows the same pattern for both: iterate through the commands within the CommandSet, create pipes as necessary for the output of the current command to be directed as input for the next,  fork a child process, and setup the file descriptors in the child. File descriptors are setup for the current command using dup2() which delineates the input and/or output information. The first command sets output, middle commands set input and output, and the last command sets input. Once all of the command information is set for execution, execvp() is called for the command and its arguments to replace the child process with the updated program state. 
+                </p>
+                    
+                <p>
+                    <b>Defunct Process Cleanup: </b>
+                    For background processes, the parent process will close its copy of file descriptors and continue to the next command without calling wait(). This is what enables processes to run in the background. When executing foreground processes, the parent calls wait() to cleanup the child when finished. However, if there is a completed background process ID in the queue ahead of the foreground process, it will cleanup those until the foreground process is reached.
+                </p>
+    
+                <h2 style="text-align: center;">Logic</h2>
+
+                <div class="post-wrapper">
+
+                    <div class="post">
+                        <img class="project" src="images/shell1.png" alt="data">
+                    </div>
+
+                    <div class="post">
+                        <img class="project" src="images/shell2.png" alt="train">
+                    </div>
+
+                    <div class="post">
+                        <img class="project" src="images/shell3.png" alt="scores">  
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section>
+
+    <script type="text/javascript" src="script.js"></script>
+        
+    </body>
+</html>    

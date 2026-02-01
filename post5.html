@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jhean Breard</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="default.css">
+
+        <link id="theme-style" rel="stylesheet" type="text/css" href="">
+
+        <style type="text/css">
+            h1, h2{
+                text-align: center;
+            }
+            h3, h4, h5, h6{
+                text-align: left;
+            }
+            .img-container{
+                max-width: 500px;
+                display: block;
+                margin: 0 auto;
+            }
+            img{
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+
+        <section class="s2">
+            <div class="nav-wrapper">
+                <a href="index.html">
+                <div class="dots-wrapper">
+                        <div id="dot-1" class="browser-dot">
+                        </div>
+                        <div id="dot-2" class="browser-dot">
+                        </div>
+                        <div id="dot-3" class="browser-dot">
+                        </div>
+                </div>
+                </a>
+                <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mailto:jhean.breard.vi@emory.edu">Contact</a></li>
+                </ul>
+            </div>
+    
+            <div class="main-container">
+                <br>
+                <h1 style="margin-bottom: 0%;">The Raging Gambler</h1>
+
+                <h2 style="text-align: center; margin-top: 1.5%;"><a target="_blank" href="https://miguelchaveznava.itch.io/raging-gambler">Play Here!</a></h2>
+
+                <h3>Gameplay</h3>
+                <p>
+                    A two-dimensional top-down view of a character whose objective is to complete unique 
+                    levels. To win a level, the player needs to defeat a certain number of enemies or survive 
+                    for a set amount of time. Upon completion, one of the room’s four doors opens, leading 
+                    the player to the next room. Upon entering the new room, the player is presented with 
+                    the characteristics of the next level, allowing them to make an informed betting decision. 
+                    A shop opens, allowing the player to wager money, health, and other game aspects, like 
+                    boosting enemy damage, to win more money at the end of the level. Each level gets 
+                    progressively more difficult, and if the player does not bet, their score will be lower than 
+                    it otherwise could be. When a player loses all of their health, they lose the run. A 
+                    leaderboard prompts the player to enter a username and displays their score. Win 
+                    money to get the highest score! 
+                </p>
+
+                <h3>Design Overview</h3>
+                <p>
+                    The Raging Gambler is built around three main “managers” that act as the game’s 
+                    control center: game manager, gamble manager, and reward manager. The game 
+                    manager facilitates flow by sequencing each level’s progression. The gamble manager 
+                    and reward manager facilitate game balance and enact the gambling mechanic through 
+                    altering player and enemy stats. The gamble manager focuses on monetary rewards by 
+                    betting on surviving a room’s conditions. The reward manager allows the player to use 
+                    money to buy back health, increase speed, or boost the stats needed to compensate for 
+                    room conditions. Although surviving longer helps, the path to the leaderboard is winning 
+                    the most money.
+                </p>
+                <p> 
+                    This is a general overview of script interactions for player and enemy’s money and 
+                    health changes. Player attributes are altered through the PlayerController and 
+                    HealthController scripts. Enemy attributes are altered through the EnemyController, 
+                    EnemySpawner, and HealthController scripts. HealthController communicates with the 
+                    PlayerMoney script and implements the IDamageable interface directing health and 
+                    damage control functions. Additionally, HealthController communicates with the Enemy 
+                    script for Thief enemies to steal playerMoney and Shooter enemies to perform critical 
+                    damage. 
+                </p>
+                <p>
+                    Here is the detailed documentation: <a target="_blank" href="Raging Gambler_ Documentation.pdf">Raging Gambler</a>
+                </p>
+    
+                <h2 style="text-align: center;">Video Walkthrough</h2>
+
+                <div class="post-wrapper-video">
+
+                    <div class="post">
+                        <video class="project" controls aria-label="Raging Gambler Walkthrough Video">
+                            <source src="videos/Raging%20Gambler%20Presentation%20Video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section>
+
+    <script type="text/javascript" src="script.js"></script>
+        
+    </body>
+</html>    
